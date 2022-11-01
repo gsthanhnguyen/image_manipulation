@@ -1,0 +1,19 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "c:\\Users\\gstha\\Dropbox\\Personal_projects\\image-manipulation",
+            "binaryPath": "c:\\Users\\gstha\\Dropbox\\Personal_projects\\image-manipulation\\pa1",
+            "binaryArgs": []
+        },
+        {
+            "cwd": "c:\\Users\\gstha\\Dropbox\\Personal_projects\\image-manipulation",
+            "binaryPath": "c:\\Users\\gstha\\Dropbox\\Personal_projects\\image-manipulation\\testblock",
+            "binaryArgs": []
+        },
+        {
+            "cwd": "c:\\Users\\gstha\\Dropbox\\Personal_projects\\image-manipulation",
+            "binaryPath": "c:\\Users\\gstha\\Dropbox\\Personal_projects\\image-manipulation\\testchain",
+            "binaryArgs": []
+        }
+    ]
+}
