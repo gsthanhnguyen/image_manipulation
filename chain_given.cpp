@@ -16,7 +16,7 @@ Chain::Chain() : length_(0) {
  * have width equal to imIn.width()/cols,
  * and height equal to imIn.height()/rows.
  * Our chain's head is a single sentinel node
- * if it contains no data.
+ * if it contains no data. 
  *
  */
 Chain::Chain(PNG & imIn, int cols, int rows){
