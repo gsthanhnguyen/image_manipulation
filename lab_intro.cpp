@@ -50,7 +50,6 @@ PNG grayscale(PNG image)
       pixel->b = (unsigned char) gray_value;
     }
   }
-  cout << "done gray-scale" << endl;
   return image;
 }
 
@@ -116,7 +115,6 @@ PNG createSpotlight(PNG image, int centerX, int centerY)
  **/
 PNG ubcify(PNG image)
 {
-  cout << "start ubcify" << endl;
   RGBAPixel* ubc_yellow = new RGBAPixel(247, 184, 0);
   RGBAPixel* ubc_blue = new RGBAPixel(12, 35, 68);
   for (unsigned x = 0; x < image.width(); x++)
@@ -140,7 +138,6 @@ PNG ubcify(PNG image)
       }
     }
   }
-  cout << "done ubcify" << endl;
   return image;
 }
 
@@ -160,7 +157,7 @@ PNG ubcify(PNG image)
 PNG watermark(PNG firstImage, PNG secondImage)
 {
   
-  // secondImage.resize(firstImage.width(), firstImage.height());
+  secondImage.resize(firstImage.width(), firstImage.height());
   for (unsigned int x = 0; x < secondImage.width(); x++)
   {
     for (unsigned int y = 0; y < secondImage.height(); y++)
@@ -169,9 +166,9 @@ PNG watermark(PNG firstImage, PNG secondImage)
       RGBAPixel *pixel_secondImage = secondImage.getPixel(x, y);
       if (pixel_secondImage->r == 255 && pixel_secondImage->g == 255 && pixel_secondImage->b == 255)
       {
-        (pixel_firstImage->r + 40 > 255) ? (pixel_firstImage->r = 255) : (pixel_firstImage->r = pixel_firstImage->r + 40);
-        (pixel_firstImage->g + 40 > 255) ? (pixel_firstImage->g = 255) : (pixel_firstImage->g = pixel_firstImage->g + 40);
-        (pixel_firstImage->b + 40 > 255) ? (pixel_firstImage->b = 255) : (pixel_firstImage->b = pixel_firstImage->b + 40);
+        (pixel_firstImage->r + 100 > 255) ? (pixel_firstImage->r = 255) : (pixel_firstImage->r = pixel_firstImage->r + 100);
+        (pixel_firstImage->g + 100 > 255) ? (pixel_firstImage->g = 255) : (pixel_firstImage->g = pixel_firstImage->g + 100);
+        (pixel_firstImage->b + 100 > 255) ? (pixel_firstImage->b = 255) : (pixel_firstImage->b = pixel_firstImage->b + 100);
       }
     }
   }

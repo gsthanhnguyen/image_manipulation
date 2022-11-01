@@ -12,7 +12,7 @@ int Block::height() const
     /* YOUR CODE HERE */
     return data[0].size();
 }
-
+ 
 void Block::render(PNG &im, int column, int row) const
 {
     /* YOUR CODE HERE */
@@ -35,7 +35,6 @@ void Block::render(PNG &im, int column, int row) const
             pixel->a = block_pixel_alpha;
         }
     }
-    cout << "Done rendering at block has column & row " << column << " " << row << endl;
 }
 
 void Block::build(PNG &im, int column, int row, int width, int height)
@@ -51,13 +50,11 @@ void Block::build(PNG &im, int column, int row, int width, int height)
         }
         data.push_back(block_column);
     }
-    cout << "Done building block" << endl;
 }
 
 void Block::flipVert()
 {
     /* YOUR CODE HERE */
-    cout << "start flipVert" << endl;
     vector<vector<RGBAPixel>> temp_data;
     for (int x = 0; x < width(); x++)
     {
@@ -69,26 +66,22 @@ void Block::flipVert()
         temp_data.push_back(block_column);
     }
     data.swap(temp_data);
-    cout << "end flipVert" << endl;
 }
 
 void Block::flipHoriz()
 {
     /* YOUR CODE HERE */
-    cout << "start flipHoriz" << endl;
     vector<vector<RGBAPixel>> temp_data;
     for (int x = width() - 1; x >= 0; x--)
     {
         temp_data.push_back(data[x]);
     }
     data.swap(temp_data);
-    cout << "end flipHoriz" << endl;
 }
 
 void Block::rotateRight()
 {
     /* YOUR CODE HERE */
-    cout << "start rotateRight" << endl;
     vector<vector<RGBAPixel>> temp_data;
     for (int x = 0; x < width(); x++)
     {
@@ -104,5 +97,4 @@ void Block::rotateRight()
         }
     }
     data.swap(temp_data);
-    cout << "end rotateRight" << endl;
 }

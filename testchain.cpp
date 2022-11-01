@@ -42,7 +42,8 @@ TEST_CASE("chain::basic odd reverse", "[weight=1][part=chain]")
     PNG res = c.render(cols,rows);
 
     //res.writeToFile("img-soln/jdsoddreverse.png");
-    PNG expected; expected.readFromFile("img-soln/jdsoddreverse.png");
+    PNG expected; 
+    expected.readFromFile("img-soln/jdsoddreverse.png");
     
     REQUIRE(res == expected);
 }
@@ -60,7 +61,7 @@ TEST_CASE("chain::basic even reverse", "[weight=1][part=chain]")
 
     //res.writeToFile("img-soln/jdsevenreverse.png");
     PNG expected; expected.readFromFile("img-soln/jdsevenreverse.png");
-    REQUIRE(res == expected);
+    REQUIRE(res == expected); 
 
 }
 

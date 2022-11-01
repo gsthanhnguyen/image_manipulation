@@ -28,7 +28,6 @@ Chain::~Chain()
 void Chain::insertBack(const Block &ndata)
 {
     /* YOUR CODE HERE */
-    cout << "start insertBack & chain size before inserting " << length_ << endl;
     Node *cur = head_; // cur = sentinel node
     Node *new_block = new Node(ndata);
     new_block->next = head_;
@@ -56,7 +55,6 @@ void Chain::insertBack(const Block &ndata)
  */
 void Chain::swap(int i, int j)
 {
-    cout << "start swap" << endl;
     /* YOUR CODE HERE */
     Node *first_node = head_->next;
     Node *node_i = walk(first_node, i - 1);
@@ -77,7 +75,6 @@ void Chain::swap(int i, int j)
     node_before_j->next = node_i;
     node_i->next = node_after_j;
 
-    cout << "end swap" << endl;
 }
 
 /**
@@ -85,7 +82,6 @@ void Chain::swap(int i, int j)
  */
 void Chain::reverse()
 {
-    cout << "start reverse" << endl;
     /* YOUR CODE HERE */
     Node *prev = NULL;
     Node *cur = head_;
@@ -100,7 +96,6 @@ void Chain::reverse()
     }
 
     head_->next = prev;
-    cout << "end reverse" << endl;
 }
 
 /*
@@ -119,7 +114,6 @@ void Chain::rotate(int k)
     /* YOUR CODE HERE */
     if (k == 1)
     {
-        cout << "return at k = 1" << endl;
         return;
     }
 
@@ -130,7 +124,6 @@ void Chain::rotate(int k)
         {
             return;
         }
-        cout << "for loop rotate: " << steps << endl;
         Node *first_node_subchain = walk(cur, steps);
         Node *before_first_node_subchain = (steps == 1) ? head_ : (walk(cur, steps - 1));
         Node *after_first_node_subchain = first_node_subchain->next;
@@ -143,9 +136,7 @@ void Chain::rotate(int k)
         last_node_subchain->next = first_node_subchain;
         first_node_subchain->next = after_last_node_subchain;
 
-        cout << "end loop rotate: " << steps << endl;
     }
-    cout << "End rotate method" << endl;
 }
 
 /**
@@ -204,7 +195,6 @@ void Chain::copy(Chain const &other)
 {
     /* YOUR CODE HERE */
 
-    cout << "start copy method" << endl;
 
     Node *copyBlock = other.head_->next;
 
@@ -222,5 +212,4 @@ void Chain::copy(Chain const &other)
     width_ = other.width_;
     height_ = other.height_;
 
-    cout << "end copy" << endl;
 }
