@@ -25,7 +25,7 @@ using namespace cs221util;
  * value for storage. Also be aware that sufficient precision must be
  * maintained during intermediate computations.  
  *
- * @return The grayscale image.
+ * @return The grayscale image. 
  */
 PNG grayscale(PNG image)
 {

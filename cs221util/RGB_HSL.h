@@ -64,32 +64,32 @@ namespace cs221util {
     return hsl;
   };
 
-  static rgbaColor hsl2rgb(hslaColor hsl) {
-    rgbaColor rgb;
+  // static rgbaColor hsl2rgb(hslaColor hsl) {
+  //   rgbaColor rgb;
 
-    // HSV Calculations -- formulas sourced from https://en.wikipedia.org/wiki/HSL_and_HSV
-    if (hsl.s <= 0.001) {
-      rgb.r = rgb.g = rgb.b = round(hsl.l * 255);
-    } else {
-      double c = (1 - fabs((2 * hsl.l) - 1)) * hsl.s;
-      double hh = hsl.h / 60;
-      double x = c * (1 - fabs(fmod(hh, 2) - 1));
-      double r, g, b;
+  //   // HSV Calculations -- formulas sourced from https://en.wikipedia.org/wiki/HSL_and_HSV
+  //   if (hsl.s <= 0.001) {
+  //     rgb.r = rgb.g = rgb.b = round(hsl.l * 255);
+  //   } else {
+  //     double c = (1 - fabs((2 * hsl.l) - 1)) * hsl.s;
+  //     double hh = hsl.h / 60;
+  //     double x = c * (1 - fabs(fmod(hh, 2) - 1));
+  //     double r, g, b;
 
-      if (hh <= 1)      { r = c; g = x; b = 0; }
-      else if (hh <= 2) { r = x; g = c; b = 0; }
-      else if (hh <= 3) { r = 0; g = c; b = x; }
-      else if (hh <= 4) { r = 0; g = x; b = c; }
-      else if (hh <= 5) { r = x; g = 0; b = c; }
-      else              { r = c; g = 0; b = x; }
+  //     if (hh <= 1)      { r = c; g = x; b = 0; }
+  //     else if (hh <= 2) { r = x; g = c; b = 0; }
+  //     else if (hh <= 3) { r = 0; g = c; b = x; }
+  //     else if (hh <= 4) { r = 0; g = x; b = c; }
+  //     else if (hh <= 5) { r = x; g = 0; b = c; }
+  //     else              { r = c; g = 0; b = x; }
       
-      double m = hsl.l - (0.5 * c);
-      rgb.r = round((r + m) * 255);
-      rgb.g = round((g + m) * 255);
-      rgb.b = round((b + m) * 255);
-    }
+  //     double m = hsl.l - (0.5 * c);
+  //     rgb.r = round((r + m) * 255);
+  //     rgb.g = round((g + m) * 255);
+  //     rgb.b = round((b + m) * 255);
+  //   }
 
-    rgb.a = round(hsl.a * 255);
-    return rgb;
-  }
+  //   rgb.a = round(hsl.a * 255);
+  //   return rgb;
+  // }
 }

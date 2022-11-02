@@ -3,12 +3,14 @@ EXEBlock = testblock
 EXEChain = testchain
 
 EXETransform = lab_intro
+EXESketchify = sketchify
 
-OBJS  = main.o PNG.o RGBAPixel.o lodepng.o chain.o block.o lab_intro.o
+OBJS  = main.o PNG.o RGBAPixel.o lodepng.o chain.o block.o lab_intro.o sketchify.o
 OBJS_B = testblock.o PNG.o RGBAPixel.o lodepng.o block.o
 OBJS_G = testchain.o PNG.o RGBAPixel.o lodepng.o chain.o block.o
 
 OBJS_T = lab_intro.o PNG.o RGBAPixel.o lodepng.o
+OBJS_S = sketchify.o PNG.o RGBAPixel.o lodepng.o RGB_HSL.o
 
 
 CXX = clang++
@@ -31,7 +33,10 @@ $(EXEChain) : $(OBJS_G)
 $(EXETransform) : $(OBJS_T)
 	$(LD) $(OBJS_T) $(LDFLAGS) -o $(EXETransform)
 
-main.o : main.cpp block.h lab_intro.h chain.h
+$(EXESketchify) : $(OBJS_S)
+	$(LD) $(OBJS_S) $(LDFLAGS) -o $(EXESketchify)
+
+main.o : main.cpp block.h lab_intro.h chain.h sketchify.h
 	$(CXX) $(CXXFLAGS) main.cpp
 
 chain.o : chain_given.cpp chain.cpp chain.h block.h
@@ -45,6 +50,9 @@ block.o : block.cpp block.h cs221util/PNG.h cs221util/RGBAPixel.h cs221util/lode
 
 lab_intro.o : lab_intro.cpp lab_intro.h cs221util/PNG.h cs221util/RGBAPixel.h cs221util/lodepng/lodepng.h
 	$(CXX) $(CXXFLAGS) lab_intro.cpp
+
+sketchify.o : sketchify.cpp sketchify.h cs221util/RGB_HSL.h cs221util/PNG.h cs221util/RGBAPixel.h cs221util/lodepng/lodepng.h
+	$(CXX) $(CXXFLAGS) sketchify.cpp
 
 PNG.o : cs221util/PNG.cpp cs221util/PNG.h cs221util/RGBAPixel.h cs221util/lodepng/lodepng.h
 	$(CXX) $(CXXFLAGS) cs221util/PNG.cpp

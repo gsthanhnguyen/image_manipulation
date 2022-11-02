@@ -9,6 +9,7 @@
 #include "block.h"
 #include <iostream>
 #include "cs221util/PNG.h"
+#include "sketchify.h"
 using namespace cs221util;
 using namespace std;
 
@@ -102,6 +103,9 @@ int main()
    result = watermark(png, png2);
    result.writeToFile("soln-img/out-watermark.png");
    cout << "Exported WaterMark" << endl;
+
+   sketchify(img_input, "soln-img/out-sketchify.png");
+   cout << "Exported Sketchify" << endl;
 
    return 0;  
 }
