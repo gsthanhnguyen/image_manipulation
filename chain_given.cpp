@@ -20,7 +20,6 @@ Chain::Chain() : length_(0) {
  *
  */
 Chain::Chain(PNG & imIn, int cols, int rows){
-   cout << "Start for build-up chain" << endl;
    width_ = imIn.width()/cols; // approx width of a block
    height_ = imIn.height()/rows;
    head_ = new Node();
@@ -35,7 +34,6 @@ Chain::Chain(PNG & imIn, int cols, int rows){
         insertBack(b);
       }
    }
-   cout << "Done for build-up chain & final chain size: " << length_ << endl;
 }
 
 /**

@@ -17,19 +17,6 @@ using namespace std;
 
 string img_input = "img-input/coco.png";
 
-void Flip(string img_path)
-{
-   PNG ht;
-   ht.readFromFile(img_path);
-   Block b;
-   b.build(ht, 1, 1, 500, 281);
-   b.flipHoriz();
-
-   PNG ht_p = ht;
-   b.render(ht_p, 1, 1);
-   ht_p.writeToFile("soln-img/jdlargeflipcorner.png");
-}
-
 void Rotate(string img_path) {
    PNG img;
    img.readFromFile(img_path);
@@ -40,7 +27,8 @@ void Rotate(string img_path) {
    c.rotate(2);
 
    PNG res = c.render(cols,rows);
-   res.writeToFile("soln-img/rotate.png");
+   res.writeToFile("soln-img/out-rotate.png");
+   cout << "Exported Rotate" << endl;
 }
 
 void OddReverse(string img_path) {
@@ -53,7 +41,8 @@ void OddReverse(string img_path) {
 
    c.reverse();
    PNG res = c.render(cols,rows);
-   res.writeToFile("soln-img/Odd_Reverse.png");
+   res.writeToFile("soln-img/out-reverse.png");
+   cout << "Exported Reverse" << endl;
 }
 
 
@@ -71,19 +60,18 @@ void Encoded(string img_path) {
    PNG res = c.render(cols,rows);
    res = grayscale(res);
    res = watermark(res, png2);
-   res.writeToFile("soln-img/Encoded.png");
+   res.writeToFile("soln-img/out-encoded.png");
+   cout << "Exported Encoded" << endl;
 }
 
 
 int main()
 {
-   Flip(img_input);
    Rotate(img_input);
    OddReverse(img_input);
    Encoded(img_input);
 
 
-   // adding features 
    cs221util::PNG png, png2, result;
 
    png.readFromFile(img_input);
