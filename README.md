@@ -70,3 +70,4 @@ $ /pa1
 ### Credits
 
 The project's core code base is a part of lab materials from the Algorithms and Data Structures - CPSC 221 course at University of British Columbia. I used pre-built classes and functions which play a role to manipulate with image PNG, image pixel, RGBA channels, break image into small blocks and attach blocks to become a chain.
+Image source: CoCo - Pixar
